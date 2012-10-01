@@ -2,6 +2,24 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
+OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+  :provider => 'github',
+  :uid => '12345',
+  :info => {
+    :name => "Michiel Sikkes",
+    :email => "michiel.sikkes@gmail.com"
+  }
+})
+
+OmniAuth.config.mock_auth[:existing] = OmniAuth::AuthHash.new({
+  :provider => 'github',
+  :uid => '55555',
+  :info => {
+    :name => "Michiel Sikkes",
+    :email => "michiel@firmhouse.com"
+  }
+})
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
