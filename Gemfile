@@ -28,6 +28,7 @@ end
 
 gem 'bourbon'
 gem 'jquery-rails'
+gem 'font-awesome-rails'
 
 gem 'devise'
 gem 'omniauth'

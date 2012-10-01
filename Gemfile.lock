@@ -57,6 +57,8 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
+    font-awesome-rails (0.4.1)
+      railties (~> 3.1)
     fssm (0.2.9)
     hashie (1.2.0)
     hike (1.2.1)
@@ -149,6 +151,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   devise
+  font-awesome-rails
   jquery-rails
   omniauth
   omniauth-github

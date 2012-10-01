@@ -1,0 +1,28 @@
+<div class="login_box">
+  <h1>Alleen nog je email...</h1>
+  <div class="score_event">
+    <div class="score">
+      <i class="icon-thumbs-up"></i>
+      <span class="points">+10</span>
+    </div>
+    GitHub account aangemaakt
+  </div>
+  <p>
+    Mooi, je hebt een GitHub account. Dat zijn alvast de eerste punten! We hebben enkel nog je e-mailadres nodig
+    voor je kunt beginnen.
+  </p>
+
+  <%= resource.errors.full_messages %>
+
+  <%= form_for resource, :as => resource_name, :url => registration_path(resource) do |form| %>
+    <p>
+      <%= session['devise.github_data'].info.username %>
+    </p>
+    <p>
+      <%= form.email_field :email %>
+    </p>
+    <p class="actions">
+      <%= form.submit "Verder", :class => "button" %>
+    </p>
+  <% end %>
+</div>

@@ -1,5 +1,25 @@
 <div class="login_box">
   <% if player_signed_in? %>
+    <h1>Hoppa</h1>
+    <div class="score_events">
+      <div class="score_event">
+        <div class="score">
+          <i class="icon-thumbs-up"></i>
+          <span class="points">+10</span>
+        </div>
+        GitHub account aangemaakt <i class="type_icon icon-github"></i>
+      </div>
+      <div class="score_event apphakker">
+        <i class="type_icon icon-bolt"></i>
+        <div class="score">
+          <i class="icon-thumbs-up"></i>
+          <span class="points">+30</span>
+        </div>
+        Geregistreerd AppHakker. Bats.
+      </div>
+
+    </div>
+
     <div class="signup_buttons">
       <%= link_to "Uitloggen", destroy_session_path, :class => "button" %>
     </div>

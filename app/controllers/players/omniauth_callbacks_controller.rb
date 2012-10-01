@@ -5,14 +5,18 @@ class Players::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     player = Player.find_or_initialize_by_provider_and_uid(auth_info.provider, auth_info.uid)
     player.name = auth_info.info.name
-    player.email = auth_info.info.email
-    player.save!
+    player.email ||= auth_info.info.email
 
-    if player.persisted?
-      sign_in_and_redirect player, :event => :authentication
+    if player.save
+      sign_in_and_redirect :player, player, :event => :authentication
     else
-      raise request.env['omniauth.auth']
+      session['devise.github_data'] = request.env['omniauth.auth']
+      redirect_to new_player_registration_url
     end
+  end
+
+  def failure
+    redirect_to root_path
   end
 
 end
