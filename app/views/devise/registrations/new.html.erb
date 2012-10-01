@@ -18,7 +18,7 @@
 
   <%= form_for resource, :as => resource_name, :url => registration_path(resource) do |form| %>
     <p>
-      <%= session['devise.github_data'].info.username %>
+      <%= session['devise.github_data'].extra.raw_info.login %>
     </p>
     <p>
       <%= form.email_field :email %>
