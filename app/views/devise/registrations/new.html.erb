@@ -12,7 +12,9 @@
     voor je kunt beginnen.
   </p>
 
-  <%= resource.errors.full_messages %>
+  <% if resource.errors.any? %>
+    <%= resource.errors.full_messages %>
+  <% end %>
 
   <%= form_for resource, :as => resource_name, :url => registration_path(resource) do |form| %>
     <p>
