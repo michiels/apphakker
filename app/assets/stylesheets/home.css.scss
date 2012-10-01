@@ -1,3 +1,40 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  @include background(radial-gradient(hsla(0, 0%, 0%, 0.0), hsla(0, 0%, 0%, 0.6)), url("/assets/code_background.jpg"));
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.login_box {
+  background-color: #fff;
+  @include border-radius(10px);
+  margin: auto;
+  width: 500px;
+  margin-top: 20%;
+  padding: 20px;
+  @include box-shadow(0 2px 3px hsla(0, 0%, 0%, 0.35));
+  h1 {
+    font-family: "Archivo Narrow";
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+  }
+
+  .signup_buttons {
+    text-align: center;
+  }
+}
+
+.button {
+  @include button(simple, #eee);
+  font-size: 16px;
+}

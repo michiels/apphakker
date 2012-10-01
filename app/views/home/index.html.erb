@@ -1,14 +1,13 @@
-<% if player_signed_in? %>
-  <p>
-    <%= current_player.inspect %>
-  </p>
-  <p>
-    <%= link_to "Sign out", destroy_session_path %>
-  </p>
-<% end %>
+<div class="login_box">
+  <% if player_signed_in? %>
+    <div class="signup_buttons">
+      <%= link_to "Uitloggen", destroy_session_path, :class => "button" %>
+    </div>
+  <% else %>
+    <h1>Begin je training</h1>
 
-<h1>Play a game</h1>
-
-<p>First, create an account on GitHub. Then:</p>
-
-<p><%= link_to "Start Hakking", player_omniauth_authorize_path("github") %></p>
+    <div class="signup_buttons">
+      <%= link_to "Log in met een GitHub account", player_omniauth_authorize_path("github"), :class => "button" %>
+    </div>
+  <% end %>
+</div>
