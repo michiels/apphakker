@@ -1,0 +1,106 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  background-color: #fff;
+  @include clearfix;
+  margin: 20px auto;
+  @include box-shadow(0 0 10px 3px hsla(0, 0%, 0%, 0.5));
+
+  .sidebar {
+    width: flex-grid(3);
+    border-top: 1px solid #eee;
+    min-width: 200px;
+  }
+}
+
+.dashboard {
+
+  .account_actions {
+    float: right;
+    margin: 10px;
+    a.logout.button {
+      @include button(simple, shade(red, 20%));
+      padding: 4px 10px;
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .main_title {
+    @include clearfix;
+    font-family: "Archivo Narrow";
+    font-weight: bold;
+    font-size: 40px;
+    margin: 10px 0;
+    margin-left: 20px;
+    @include inline-block;
+  }
+
+  .player_status {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .player_status img.player_image {
+    @include border-radius(100px);
+    width: 140px;
+  }
+
+  .player_name {
+    margin: 10px 0;
+    font-family: "Archivo Narrow";
+    font-size: 30px;
+  }
+
+  .widget {
+    border-top: 1px solid #ccc;
+    .widget_header {
+      font-family: "Archivo Narrow";
+      border-top: 1px solid #fff;
+      font-size: 20px;
+      text-align: left;
+      padding: 10px;
+      @include background(linear-gradient(#f0f0f0, #ccc), #f0f0f0);
+      text-shadow: hsla(0, 100%, 100%, 0.5) 0px 1px 0;
+      .subtitle {
+        font-size: 14px;
+        margin-top: 3px;
+        color: #444;
+      }
+    }
+    .widget_body {
+      border-top: 1px solid #888;
+    }
+  }
+
+  .juice_status {
+    margin: 10px;
+    i {
+      margin-right: 10px;
+      padding: 6px 8px 4px 8px;
+      line-height: 1;
+      @include inline-block;
+      @include border-radius(3px);
+    }
+    &.github i {
+      background-color: shade(skyblue, 20%);
+      color: white;
+    }
+    &.deploys i {
+      background-color: #29264D;
+      color: white;
+    }
+    &.tests i {
+      background-color: shade(green, 30%);
+      color: white;
+    }
+    &.blog_posts i {
+      background-color: orange;
+      color: white;
+    }
+  }
+}

@@ -34,6 +34,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
 
+gem 'turbolinks'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -110,9 +110,3 @@ body {
     margin: 10px 0;
   }
 }
-
-.button {
-  @include button(simple, #eee);
-  font-size: 16px;
-  line-height: 1.5;
-}

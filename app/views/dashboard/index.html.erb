@@ -1,0 +1,37 @@
+<div class="container dashboard">
+  <div class="header">
+    <div class="main_title">Apphakker</div>
+    <div class="account_actions"><%= link_to "#", :class => "logout button" do %>
+      <i class="icon-signout"></i>
+      <% end %></div>
+  </div>
+  <div class="sidebar">
+    <div class="player_status">
+      <img class="player_image" src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest('michiel.sikkes@gmail.com') %>?s=200" />
+      <div class="player_name">
+        Michiel Sikkes
+      </div>
+    </div>
+
+    <div class="widget hackerjuice">
+      <div class="widget_header">
+        Deze week
+        <div class="subtitle">nog 3 dagen</div>
+      </div>
+      <div class="widget_body">
+        <div class="juice_status github">
+          <i class="icon-github"></i> 0 / 40 commits
+        </div>
+        <div class="juice_status deploys">
+          <i class="icon-cloud"></i> 0 / 6 deploys</i>
+        </div>
+        <div class="juice_status tests">
+          <i class="icon-tasks"></i> 4 tests</i>
+        </div>
+        <div class="juice_status blog_posts">
+          <i class="icon-rss"></i> 3 / 1 blog posts</i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

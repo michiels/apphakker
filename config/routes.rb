@@ -1,4 +1,6 @@
 Apphakker::Application.routes.draw do
+  get "dashboard/index"
+
   devise_for :players, :controllers => { :omniauth_callbacks => "players/omniauth_callbacks"}
 
   devise_scope :player do
