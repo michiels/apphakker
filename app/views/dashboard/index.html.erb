@@ -1,6 +1,13 @@
-<div class="container dashboard">
-  <div class="header">
+<div class="container dashboard" style="position: relative;">
+  <div class="header" style="position: relative;">
     <div class="main_title">Apphakker</div>
+    <div class="experience_area" style="">
+      <div class="bar" style="height: 20px; overflow: hidden; border-radius: 4px;">
+        <div class="bar_completed" style="height: 20px; display: inline-block; background-color: orange; width: 40%;">
+
+        </div>
+      </div>
+    </div>
     <div class="account_actions"><%= link_to "#", :class => "logout button" do %>
       <i class="icon-signout"></i>
       <% end %></div>
@@ -32,6 +39,38 @@
           <i class="icon-rss"></i> 3 / 1 blog posts</i>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="content_area">
+    <div class="first_step" style="overflow: hidden;">
+      <div class="picture" style="float: left; font-size: 60px; margin-right: 20px;">
+        <i class="icon-check"></i>
+      </div>
+      <div class="text" style="margin-left: 80px;">
+        <p class="introduction">Mooi. Je hebt een GitHub account dus je kan aan de slag. Voor alle goede acties die jij als ontwikkelaar onderneemt, krijg je van ons hacker juice. <strong>Hacker juice bewijst dat jij er wat van kan.</strong></p>
+        <p class="introduction">Voor we uitleggen hoe deze online course werkt, moet je eerst je welverdiende hacker juice claimen.</p>
+      </div>
+          <div class="score_events">
+      <div class="score_event">
+        <div class="score">
+          <i class="icon-thumbs-up"></i>
+          <span class="points">+10</span>
+        </div>
+        GitHub account aangemaakt <i class="type_icon icon-github"></i>
+      </div>
+      <div class="score_event apphakker">
+        <i class="type_icon icon-bolt"></i>
+        <div class="score">
+          <i class="icon-thumbs-up"></i>
+          <span class="points">+30</span>
+        </div>
+        Geregistreerd AppHakker. Bats.
+      </div>
+
+    </div>
+    <div style="text-align: center"><%= link_to "#", :class => "claim_juice button" do %>
+      <i class="icon-beaker"></i> Claim juice
+    <% end %></div>
     </div>
   </div>
 </div>

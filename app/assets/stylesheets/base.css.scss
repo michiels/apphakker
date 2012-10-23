@@ -5,6 +5,14 @@ $fg-max-columns: 12;          // Total Columns For Main Container
 $gw-column: 99px;
 $gw-gutter: 24px;
 
+body {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+strong {
+  font-weight: bold;
+}
+
 .button {
   @include button(simple, #eee);
   font-size: 16px;

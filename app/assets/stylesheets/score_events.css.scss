@@ -1,0 +1,43 @@
+.score_events {
+  margin: 20px 0;
+}
+
+.score_event {
+  font-size: 16px;
+  line-height: 28px;
+  @include background(linear-gradient(#222, #000), #111);
+  @include box-shadow(0 0 1px 1px hsla(0, 100%, 100%, 0.1) inset);
+  border: 1px solid #000;
+  color: #fff;
+  font-family: monospace;
+  @include border-radius(5px);
+  overflow: hidden;
+  .score {
+    @include inline-block;
+    font-weight: normal; 
+    margin-right: 10px;
+    color: #bbb;
+    border-right: 1px solid #333;
+    @include clearfix;
+    line-height: 28px;
+    padding: 2px 10px;
+    color: tint(green, 40%);
+    i {
+      font-size: 20px;
+      vertical-align: middle;
+    }
+  }
+  &.apphakker .score {
+    color: tint(blue, 50%);
+  }
+  .icon-bolt {
+    color: yellow;
+  }
+  .type_icon {
+    float: right;
+    opacity: 0.5;
+    margin: 3px 10px;
+    width: 20px;
+    text-align: center;
+  }
+}
