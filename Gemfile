@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 group :production do
   gem 'pg'
+  gem 'mysql2'
 end
 
 group :development do
@@ -43,10 +44,11 @@ gem 'turbolinks'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
+gem 'capistrano-unicorn', :require => false
 
 # To use debugger
 # gem 'debugger'

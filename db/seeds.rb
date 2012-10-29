@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Assignment.find_or_create_by_name("GitHub account created", :ruby_class => "GithubAccountCreated").save

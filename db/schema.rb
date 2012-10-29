@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001064734) do
+ActiveRecord::Schema.define(:version => 20121024203317) do
+
+  create_table "assignments", :force => true do |t|
+    t.string   "ruby_class"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "players", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
