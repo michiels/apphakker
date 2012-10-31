@@ -28,6 +28,7 @@ ssh_options[:forward_agent] = true
 before "deploy:finalize_update" do
   run "rm -f #{release_path}/config/database.yml; ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   run "rm -f #{release_path}/log; ln -nfs #{shared_path}/log #{release_path}/log"
+  run "mkdir #{shared_path}/dumps"
   run "mkdir #{release_path}/tmp;"
   run "ln -nfs #{shared_path}/pids #{release_path}/tmp/pids"
   run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
@@ -35,9 +36,9 @@ before "deploy:finalize_update" do
 end
 
 namespace :db do
-  task :fetch do
-    run "cd #{current_path} && bundle exec rake db:dump"
-    download "dump.sql"
+  task :pull do
+    run "cd #{current_path} && bundle exec rake db:dump > #{shared_path}/dumps.sql"
+    download "#{current_path}/dump.sql", "dump.sql"
   end
 end
 
