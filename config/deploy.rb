@@ -34,6 +34,13 @@ before "deploy:finalize_update" do
   run "ln -nfs #{shared_path}/../config/unicorn.rb #{release_path}/config/unicorn.rb"
 end
 
+namespace :db do
+  task :fetch do
+    run "bundle exec rake db:dump"
+    download "dump.sql"
+  end
+end
+
 namespace :deploy do
   task :start do
     run "sudo bluepill load /etc/bluepill/#{application}.pill"
@@ -43,6 +50,9 @@ namespace :deploy do
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "sudo bluepill #{application} restart"
+  end
+  task :status do
+    run "sudo bluepill #{application} status"
   end
 end
 
