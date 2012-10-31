@@ -36,7 +36,7 @@ end
 
 namespace :db do
   task :fetch do
-    run "bundle exec rake db:dump"
+    run "cd #{current_path} && bundle exec rake db:dump"
     download "dump.sql"
   end
 end
