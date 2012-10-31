@@ -37,8 +37,17 @@ end
 
 namespace :db do
   task :pull do
-    run "cd #{current_path} && bundle exec rake db:dump > #{shared_path}/dumps.sql"
-    download "#{current_path}/dump.sql", "dump.sql"
+    run "cd #{current_path} && bundle exec rake db:dump > #{shared_path}/dumps/database.sql"
+    download "#{shared_path}/dumps/database.sql", "dump.sql"
+    run "rm -f #{sared_path}/dumps/database.sql"
+  end
+end
+
+namespace :db do
+  task :push do
+    upload "import.sql", "#{shared_path}/dumps/import.sql"
+    run "cd #{current_path} && bundle exec rake db:import IMPORT_FILE=#{shared_path}/dumps/import.sql"
+    run "rm -f #{shared_path}/dumps/import.sql"
   end
 end
 
