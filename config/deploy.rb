@@ -28,7 +28,7 @@ ssh_options[:forward_agent] = true
 before "deploy:finalize_update" do
   run "rm -f #{release_path}/config/database.yml; ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   run "rm -f #{release_path}/log; ln -nfs #{shared_path}/log #{release_path}/log"
-  run "mkdir #{shared_path}/dumps"
+  run "mkdir -p #{shared_path}/dumps"
   run "mkdir #{release_path}/tmp;"
   run "ln -nfs #{shared_path}/pids #{release_path}/tmp/pids"
   run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
@@ -37,7 +37,7 @@ end
 
 namespace :db do
   task :pull do
-    run "cd #{current_path} && bundle exec rake db:dump > #{shared_path}/dumps/database.sql"
+    run "cd #{current_path} && bundle exec rake deploy:db:dump > #{shared_path}/dumps/database.sql"
     download "#{shared_path}/dumps/database.sql", "dump.sql"
     run "rm -f #{sared_path}/dumps/database.sql"
   end
@@ -46,7 +46,7 @@ end
 namespace :db do
   task :push do
     upload "import.sql", "#{shared_path}/dumps/import.sql"
-    run "cd #{current_path} && bundle exec rake db:import IMPORT_FILE=#{shared_path}/dumps/import.sql"
+    run "cd #{current_path} && bundle exec rake deploy:db:import IMPORT_FILE=#{shared_path}/dumps/import.sql"
     run "rm -f #{shared_path}/dumps/import.sql"
   end
 end
