@@ -8,14 +8,23 @@ set :repository,  "git@github.com:michiels/apphakker.git"
 set :scm, :subversion
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "37.34.58.141"                          # Your HTTP server, Apache/etc
-role :app, "37.34.58.141"                          # This may be the same as your `Web` server
-role :db,  "37.34.58.141", :primary => true # This is where Rails migrations will run
+# role :web, "37.34.58.141", "app2.apphakker.nl"                          # Your HTTP server, Apache/etc
+# role :app, "37.34.58.141", "app2.apphakker.nl"                       # This may be the same as your `Web` server
+# role :db,  "37.34.58.141", :primary => true # This is where Rails migrations will run
 # role :db,  "your slave db-server here"
 
+role :web, "localhost"
+role :app, "localhost"
+
 set :user, "deploy"
-set :use_sudo, false
 set :scm, :git
+
+set :bluepill, "bluepill"
+
+# Uncomment the following two lines if you are testing with Vagrant
+# set :bluepill, "/opt/vagrant_ruby/bin/bluepill"
+# ssh_options[:port] = 2222
+##
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
@@ -53,25 +62,15 @@ end
 
 namespace :deploy do
   task :start do
-    run "sudo bluepill load /etc/bluepill/#{application}.pill"
+    run "#{sudo} #{bluepill} load /etc/bluepill/#{application}.pill"
   end
   task :stop do
-    run "sudo bluepill #{application} stop"
+    run "#{sudo} #{bluepill} #{application} stop"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "sudo bluepill #{application} restart"
+    run "#{sudo} #{bluepill} #{application} restart"
   end
   task :status do
-    run "sudo bluepill #{application} status"
+    run "#{sudo} #{bluepill} #{application} status"
   end
 end
-
-# # If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
