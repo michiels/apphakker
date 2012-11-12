@@ -16,3 +16,5 @@
 
 .powenv
 .DS_Store
+
+dump.sql
