@@ -141,13 +141,10 @@
   }
 
   .content_area {
-    position: absolute;
-    left: 250px;
-    right: 0;
-    bottom: 0;
+    @include clearfix;
     background-color: #fcfcfc;
-    top: 65px;
     @include box-shadow(0 0 50px hsla(400, 10%, 10%, 0.2) inset);
+    margin-left: 250px;
   }
 
   .first_step {
