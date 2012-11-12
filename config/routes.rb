@@ -1,6 +1,12 @@
 Apphakker::Application.routes.draw do
   get "dashboard/index"
 
+  resources :achievements do
+    member do
+      post :claim
+    end
+  end
+
   devise_for :players, :controllers => { :omniauth_callbacks => "players/omniauth_callbacks"}
 
   devise_scope :player do
