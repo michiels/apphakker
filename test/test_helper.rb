@@ -5,18 +5,22 @@ require 'rails/test_help'
 OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
   :provider => 'github',
   :uid => '12345',
-  :info => {
-    :name => "Michiel Sikkes",
-    :email => "michiel.sikkes@gmail.com"
+  :extra => {
+    :raw_info => {
+      :name => "Michiel Sikkes",
+      :email => "michiel.sikkes@gmail.com"
+    },
   }
 })
 
 OmniAuth.config.mock_auth[:existing] = OmniAuth::AuthHash.new({
   :provider => 'github',
   :uid => '55555',
-  :info => {
-    :name => "Michiel Sikkes",
-    :email => "michiel@firmhouse.com"
+  :extra => {
+    :raw_info => {
+      :name => "Michiel Sikkes",
+      :email => "michiel@firmhouse.com"
+    },
   }
 })
 
@@ -28,4 +32,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
 end

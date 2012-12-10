@@ -2,8 +2,6 @@ require 'test_helper'
 
 class Players::OmniauthCallbacksControllerTest < ActionController::TestCase
 
-  include Devise::TestHelpers
-
   setup do
     request.env['devise.mapping'] = Devise.mappings[:player]
   end

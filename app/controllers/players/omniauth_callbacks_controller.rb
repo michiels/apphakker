@@ -5,7 +5,10 @@ class Players::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     player = Player.find_or_initialize_by_provider_and_uid(auth_info.provider, auth_info.uid)
     player.name = auth_info.extra.raw_info.name
-    player.email ||= auth_info.extra.raw_info.email
+
+    if player.new_record?
+      player.email = auth_info.extra.raw_info.email
+    end
 
     if player.save
       sign_in_and_redirect :player, player, :event => :authentication

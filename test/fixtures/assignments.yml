@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  ruby_class: MyString
-  name: MyString
+github:
+  ruby_class: GithubAccountCreated
+  name: GitHub account aangemaakt
 
-two:
-  ruby_class: MyString
-  name: MyString
+apphakker:
+  ruby_class: ApphakkerAccountCreated
+  name: Je bent officieel apphakker.
