@@ -1,5 +1,7 @@
 Apphakker::Application.routes.draw do
-  get "dashboard/index"
+  get "dashboard" => "dashboard#index", :as => :dashboard
+  
+  get "signout" => "sessions#destroy", :as => :signout
 
   resources :achievements do
     member do

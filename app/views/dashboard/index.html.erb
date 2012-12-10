@@ -7,15 +7,15 @@
         </div>
       </div>
     </div>
-    <div class="account_actions"><%= link_to "#", :class => "logout button" do %>
+    <div class="account_actions"><%= link_to(signout_path, :class => "logout button") do %>
       <i class="icon-signout"></i>
       <% end %></div>
   </div>
   <div class="sidebar">
     <div class="player_status">
-      <img class="player_image" src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest('michiel.sikkes@gmail.com') %>?s=200" />
+      <%= image_tag player_avatar_url(current_player, 200), :class => "player_image" %>
       <div class="player_name">
-        Michiel Sikkes
+        <%= current_player.name %>
       </div>
     </div>
 
@@ -68,9 +68,6 @@
         </div>
       </div>
 
-    </div>
-
-    <div class="claim_scores" style="margin: 10px 40px;">
     </div>
   </div>
 </div>
