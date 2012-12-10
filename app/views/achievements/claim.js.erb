@@ -1,2 +1,2 @@
-$('#claim_score_<%= params[:id] %>').replaceWith('<%= escape_javascript(render("achieved")) %>')
+$('#assignment_<%= @assignment.id %>').replaceWith('<%= escape_javascript(render("achieved")) %>')
 $('#progress_bar').animate({"width": $('#progress_bar').width() + 50})

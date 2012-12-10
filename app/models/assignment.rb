@@ -4,6 +4,6 @@ class Assignment < ActiveRecord::Base
   delegate :unlocked?, :to => :validator
 
   def validator
-    @validator ||= ruby_class.constantize.new(self)
+    @validator ||= ruby_class.constantize.new()
   end
 end
