@@ -1,4 +1,5 @@
 GEM
+  remote: http://gem.tracelytics.com/
   remote: https://rubygems.org/
   specs:
     actionmailer (3.2.8)
@@ -102,6 +103,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    oboe (1.3.7)
     omniauth (1.1.1)
       hashie (~> 1.2)
       rack
@@ -180,6 +182,7 @@ DEPENDENCIES
   font-awesome-rails
   jquery-rails
   mysql2
+  oboe
   omniauth
   omniauth-github
   pg
