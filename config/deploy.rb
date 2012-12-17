@@ -13,8 +13,8 @@ set :scm, :subversion
 # role :db,  "37.34.58.141", :primary => true # This is where Rails migrations will run
 # role :db,  "your slave db-server here"
 
-role :web, "localhost"
-role :app, "localhost"
+role :web, "beta.apphakker.nl"
+role :app, "beta.apphakker.nl"
 
 set :user, "deploy"
 set :scm, :git
