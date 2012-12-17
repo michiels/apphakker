@@ -10,6 +10,9 @@ class Player < ActiveRecord::Base
 
   validates :email, :presence => true, :uniqueness => true
 
+  has_many :assignments, through: :achievements
+  has_many :achievements, dependent: :destroy
+
   def self.new_with_session(params, session)
     super.tap do |player|
       player.provider = session['devise.github_data'].provider
