@@ -1,0 +1,7 @@
+#!/bin/sh
+
+bundle --without production --binstubs
+
+rm -f log/*
+rake db:setup
+touch tmp/restart.txt
