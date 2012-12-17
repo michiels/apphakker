@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   before_filter :authenticate_player!
 
   def index
-
-    @assignments = Assignment.all
+    @achieved_assignments = current_player.assignments
+    @assignments = Assignment.all.reject { |a| @achieved_assignments.include?(a) }
   end
 end

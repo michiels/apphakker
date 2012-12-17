@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024203317) do
+ActiveRecord::Schema.define(:version => 20121217212025) do
+
+  create_table "achievements", :force => true do |t|
+    t.integer  "player_id"
+    t.integer  "assignment_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "achievements", ["player_id", "assignment_id"], :name => "index_achievements_on_player_id_and_assignment_id", :unique => true
 
   create_table "assignments", :force => true do |t|
     t.string   "ruby_class"
