@@ -1,5 +1,8 @@
 source 'http://gem.tracelytics.com'
-gem 'oboe'
+
+group :production do
+  gem 'oboe'
+end
 
 source 'https://rubygems.org'
 
