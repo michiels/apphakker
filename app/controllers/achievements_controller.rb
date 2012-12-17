@@ -1,15 +1,15 @@
 class AchievementsController < ApplicationController
+  before_filter :authenticate_player!
 
   def claim
     @assignment = Assignment.find(params[:id])
 
     if @assignment.unlocked?
+      current_player.assignments << @assignment
       render
     else
       render :nothing => true
     end
-    # create a method to check if the achievement validates for the current user
-    # and is not validated yet
   end
 
 end
