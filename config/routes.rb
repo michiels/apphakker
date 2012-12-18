@@ -1,4 +1,6 @@
 Apphakker::Application.routes.draw do
+  resources :assignment_sets, :path => "sets"
+
   get "dashboard" => "dashboard#index", :as => :dashboard
   
   get "signout" => "sessions#destroy", :as => :signout

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  next_set_id: 1
+  name: MyString
+
+two:
+  next_set_id: 1
+  name: MyString
