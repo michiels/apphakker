@@ -65,6 +65,11 @@
     font-size: 30px;
   }
 
+  h2 {
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
+
   .widget {
     border-top: 1px solid #ccc;
     .widget_header {
@@ -114,10 +119,6 @@
   }
 
   .claim_scores {
-    h2 {
-      margin-bottom: 1em;
-      font-style: italic;
-    }
     &:nth-child(2) {
       border-top: 1px solid #ccc;
     }
@@ -165,14 +166,24 @@
     border-radius: 5px;
     p {
       margin-bottom: 1em;
+      line-height: 1.4;
     }
     p.introduction {
-      font-size: 17x;
-      line-height: 1.4;
+      font-size: 18px;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    ul {
+      list-style-type: square;
+      margin-bottom: 20px;
+      li {
+        line-height: 1.4;
+      }
     }
     h1 {
       font-weight: bold;
       font-size: 24px;
+      margin-bottom: 1em;
     }
     .claim_juice {
       i {

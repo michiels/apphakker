@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apphakker</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="container dashboard" style="position: relative;">
+  <div class="header" style="position: relative;">
+    <div class="main_title">Apphakker</div>
+    <div class="experience_area" style="">
+      <div class="bar" style="height: 20px; overflow: hidden; border-radius: 4px;">
+        <div id="progress_bar" class="bar_completed" style="height: 20px; display: inline-block; background-color: #0ba; width: 50px;">
+        </div>
+      </div>
+    </div>
+    <div class="account_actions"><%= link_to(signout_path, :class => "logout button") do %>
+      <i class="icon-signout"></i>
+      <% end %></div>
+  </div>
+  <div class="sidebar">
+    <div class="player_status">
+      <%= image_tag player_avatar_url(current_player, 200), :class => "player_image" %>
+      <div class="player_name">
+        <%= current_player.name %>
+      </div>
+    </div>
+
+    <div class="widget hackerjuice">
+      <div class="widget_header">
+        Deze week
+        <div class="subtitle">nog 3 dagen</div>
+      </div>
+      <div class="widget_body">
+        <div class="juice_status github">
+          <i class="icon-github"></i> 0 / 40 commits
+        </div>
+        <div class="juice_status deploys">
+          <i class="icon-cloud"></i> 0 / 6 deploys</i>
+        </div>
+        <div class="juice_status tests">
+          <i class="icon-tasks"></i> 4 tests</i>
+        </div>
+        <div class="juice_status blog_posts">
+          <i class="icon-rss"></i> 3 / 1 blog posts</i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content_area">
+    <div class="first_step" style="overflow: hidden;">
+
+      <%= yield %>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

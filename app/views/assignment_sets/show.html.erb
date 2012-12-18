@@ -1,0 +1,20 @@
+<div class="picture" style="float: left; font-size: 60px; margin-right: 20px;">
+  <i class="icon-plane"></i>
+</div>
+
+<div class="text" style="margin-left: 80px;">
+  <h1><%= @assignment_set.name %></h1>
+  <p class="introduction">Ok! Je gaan aan de slag. De komende weken zal jij met behulp van deze applicatie en wat hulp van mij zelfstandig je eigen webapplicatie maken.</p>
+  <p class="introduction">Je krijgt steeds een setje opdrachten, die je in je eigen applicatie moet voltooien. Denk je een opdracht af te hebben, dan kun je die hier op het dashboard claimen.</p>
+  <h2>Begin met een simpel idee</h2>
+  <p>Waar je mee moet beginnen is het bedenken van een idee voor wat jij gaat maken. Het hoeft niet wereldschokkend te zijn, zolang jij, je moeder, je collega's of je vrienden er maar wat aan hebben. Hou het dichtbij jezelf en maak het nuttig.</p>
+  <p>Enkele voorbeelden:</p>
+  <ul>
+    <li>Een web app waar je moeder recepten bij kan houden.</li>
+    <li>Hou bij wie van je vriendengroep er nu een rondje moet geven.</li>
+    <li>...</li>
+  </ul>
+
+  <%= text_area_tag "your_idea", "", :placeholder => "Vul hier je idee in", :style => "width: 100%; height: 50px;" %>
+  <%= submit_tag "Sla je idee op" %>
+</div>
