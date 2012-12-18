@@ -20,3 +20,5 @@
   <%= render partial: "achievements/achievement", collection: @achieved_assignments %>
 
 </div>
+
+<p id="continue_button" class="continue" <% if current_player.assignments != Assignment.starter %>style="display: none"<% end %>><%= link_to "Ga verder", assignment_set_path(AssignmentSet.first), :class => "button" %></p>

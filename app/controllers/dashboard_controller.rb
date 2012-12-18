@@ -4,6 +4,6 @@ class DashboardController < ApplicationController
 
   def index
     @achieved_assignments = current_player.assignments
-    @assignments = Assignment.all.reject { |a| @achieved_assignments.include?(a) }
+    @assignments = Assignment.starter.reject { |a| @achieved_assignments.include?(a) }
   end
 end

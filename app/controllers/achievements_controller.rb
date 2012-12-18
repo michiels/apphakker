@@ -6,6 +6,10 @@ class AchievementsController < ApplicationController
 
     if @assignment.unlocked?
       current_player.assignments << @assignment
+
+      if current_player.assignments.starter.count == Assignment.starter.count
+        @all_completed = true
+      end
       render
     else
       render :nothing => true
