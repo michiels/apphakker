@@ -17,4 +17,18 @@
 
   <%= text_area_tag "your_idea", "", :placeholder => "Vul hier je idee in", :style => "width: 100%; height: 50px;" %>
   <%= submit_tag "Sla je idee op" %>
+
+  <div id="player_assignments" class="claim_scores" style="margin: 40px 0;">
+
+  <%= render @assignments %>
+
+  </div>
+
+  <div id="player_achievements" class="claim_scores" style="<% if @achieved_assignments.empty? %> display: none; <% end %> margin: 40px 0;">
+
+    <h2>Voltooid</h2>
+
+    <%= render partial: "achievements/achievement", collection: @achieved_assignments %>
+
+  </div>
 </div>
