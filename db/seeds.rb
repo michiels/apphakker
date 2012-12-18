@@ -9,4 +9,10 @@
 Assignment.find_or_create_by_ruby_class("GithubAccountCreated", :name => "GitHub account aangemaakt").save
 Assignment.find_or_create_by_ruby_class("ApphakkerAccountCreated", :name => "Je bent officieel Apphakker geworden!").save
 
-AssignmentSet.find_or_create_by_alias("setup", :name => "Beginnen met je applicatie").save
+
+setup_set = AssignmentSet.find_or_create_by_alias("setup", :name => "Beginnen met je applicatie")
+
+idea_assignment = Assignment.find_or_create_by_ruby_class("AppIdeaSubmitted")
+idea_assignment.name = "App idee bepaald"
+idea_assignment.save
+idea_assignment.assignment_set = setup_set
