@@ -9,10 +9,16 @@
 Assignment.find_or_create_by_ruby_class("GithubAccountCreated", :name => "GitHub account aangemaakt").save
 Assignment.find_or_create_by_ruby_class("ApphakkerAccountCreated", :name => "Je bent officieel Apphakker geworden!").save
 
-
 setup_set = AssignmentSet.find_or_create_by_alias("setup", :name => "Beginnen met je applicatie")
 
-idea_assignment = Assignment.find_or_create_by_ruby_class("AppIdeaSubmitted")
-idea_assignment.name = "App idee bepaald"
-idea_assignment.save
-idea_assignment.assignment_set = setup_set
+setup_assignments = [
+  {ruby_class: "AppIdeaSubmitted", name: "App idee bepaald"},
+  { ruby_class: "GitHubRepositoryCreated", name: "Project op GitHub aangemaakt"}
+]
+
+setup_assignments.each do |assignment_data|
+  assignment = Assignment.find_or_create_by_ruby_class(assignment_data[:ruby_class])
+  assignment.name = assignment_data[:name]
+  assignment.assignment_set = setup_set
+  assignment.save
+end
