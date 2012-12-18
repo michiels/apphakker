@@ -1,3 +1,4 @@
+$('#player_achievements').show()
 $('#player_achievements').append('<%= escape_javascript(render("achievement", achievement: @assignment)) %>')
 $('#player_assignments #assignment_<%= @assignment.id %>').remove()
 $('#progress_bar').animate({"width": $('#progress_bar').width() + 50})

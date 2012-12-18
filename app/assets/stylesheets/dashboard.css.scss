@@ -113,6 +113,16 @@
     }
   }
 
+  .claim_scores {
+    h2 {
+      margin-bottom: 1em;
+      font-style: italic;
+    }
+    &:nth-child(2) {
+      border-top: 1px solid #ccc;
+    }
+  }
+
   .claim_score .icon_wrapper {
     border: 6px solid #fff;
 

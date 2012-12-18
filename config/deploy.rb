@@ -15,6 +15,8 @@ set :scm, :subversion
 
 role :web, "beta.apphakker.nl"
 role :app, "beta.apphakker.nl"
+role :db, "beta.apphakker.nl", :primary => true
+
 
 set :user, "deploy"
 set :scm, :git
@@ -72,5 +74,8 @@ namespace :deploy do
   end
   task :status do
     run "#{sudo} #{bluepill} #{application} status"
+  end
+  task :seed do
+    run "cd #{current_path} && bundle exec rake db:seed RAILS_ENV=production"
   end
 end
