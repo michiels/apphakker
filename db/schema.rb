@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20121218201638) do
   create_table "assignment_sets", :force => true do |t|
     t.integer  "next_set_id_id"
     t.string   "name"
+    t.string   "alias"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

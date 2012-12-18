@@ -8,3 +8,5 @@
 
 Assignment.find_or_create_by_ruby_class("GithubAccountCreated", :name => "GitHub account aangemaakt").save
 Assignment.find_or_create_by_ruby_class("ApphakkerAccountCreated", :name => "Je bent officieel Apphakker geworden!").save
+
+AssignmentSet.find_or_create_by_alias("setup", :name => "Beginnen met je applicatie").save
