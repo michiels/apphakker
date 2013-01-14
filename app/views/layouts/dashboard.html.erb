@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 
   <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
+
+  <script type="text/javascript">
+    setInterval(updatePage, 1000);
+
+    function updatePage() {
+      $.get('<%= url_for(format: :js) %>')
+    }
+  </script>
 </head>
 <body>
 

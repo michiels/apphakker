@@ -1,0 +1,19 @@
+<div id="player_assignments" class="claim_scores" style="margin: 40px 0;">
+
+<%= render assignments %>
+
+</div>
+
+<div id="player_achievements" class="claim_scores" style="<% if @achieved_assignments.empty? %> display: none; <% end %> margin: 40px 0;">
+
+  <h2>Voltooid</h2>
+
+  <%= render partial: "achievements/achievement", collection: achieved_assignments %>
+
+</div>
+
+<% if assignments.empty? %>
+
+<p id="continue_button" class="continue"><%= link_to "Ga verder", assignment_set_path(@assignment_set.try(:next_set_id) || AssignmentSet.first), :class => "button" %></p>
+
+<% end %>

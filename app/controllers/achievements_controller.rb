@@ -3,17 +3,19 @@ class AchievementsController < ApplicationController
 
   def claim
     @assignment = Assignment.find(params[:id])
+    @assignment_set = @assignment.assignment_set
 
-    if @assignment.unlocked?(current_player)
-      current_player.assignments << @assignment
-
-      if current_player.assignments.starter.count == Assignment.starter.count
-        @all_completed = true
-      end
-      render
+    if @assignment_set.nil?
+      @achieved_assignments = current_player.assignments.starter
+      @assignments = Assignment.starter.reject { |a| @achieved_assignments.include?(a) }
     else
-      render :nothing => true
+      @achieved_assignments = @assignment_set.assignments & current_player.assignments
+      @assignments = @assignment_set.assignments - @achieved_assignments
     end
+
+    render
+
+    AchievementWorker.perform_async(current_player.id, @assignment.id)
   end
 
 end

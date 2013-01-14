@@ -13,7 +13,7 @@ setup_set = AssignmentSet.find_or_create_by_alias("setup", :name => "Beginnen me
 
 setup_assignments = [
   {ruby_class: "AppIdeaSubmitted", name: "App idee bepaald"},
-  {ruby_class: "GitHubRepositoryCreated", name: "Project op GitHub aangemaakt"}
+  {ruby_class: "GithubRepositoryCreated", name: "Project op GitHub aangemaakt"}
 ]
 
 setup_assignments.each do |assignment_data|
