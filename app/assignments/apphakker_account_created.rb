@@ -1,6 +1,6 @@
 class ApphakkerAccountCreated
 
-  def unlocked?
+  def unlocked?(player = nil)
     return true
   end
 

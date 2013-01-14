@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218215936) do
+ActiveRecord::Schema.define(:version => 20130114200635) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "player_id"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 20121218215936) do
   add_index "achievements", ["player_id", "assignment_id"], :name => "index_achievements_on_player_id_and_assignment_id", :unique => true
 
   create_table "assignment_sets", :force => true do |t|
-    t.integer  "next_set_id_id"
+    t.integer  "next_set_id"
     t.string   "name"
     t.string   "alias"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "assignments", :force => true do |t|
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(:version => 20121218215936) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.text     "app_idea"
+    t.string   "git_repository_url"
   end
 
   add_index "players", ["email"], :name => "index_players_on_email", :unique => true

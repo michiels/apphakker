@@ -11,12 +11,23 @@
   <p>Enkele voorbeelden:</p>
   <ul>
     <li>Een web app waar je moeder recepten bij kan houden.</li>
-    <li>Hou bij wie van je vriendengroep er nu een rondje moet geven.</li>
-    <li>...</li>
+    <li>Je eigen blog/portfolio met CMS.</li>
+    <li>Maak een web app waar je een todo lijst in bij kan houden.</li>
   </ul>
 
-  <%= text_area_tag "your_idea", "", :placeholder => "Vul hier je idee in", :style => "width: 100%; height: 50px;" %>
-  <%= submit_tag "Sla je idee op" %>
+  <p>Denk er in ieder geval aan, dat jij de komende weken aan deze applicatie gaat werken. Dus zorg ervoor dat het iets is wat je interessant en/of leuk vind.</p>
+
+  <%= form_for current_player, url: player_path, remote: true do |form| %>
+    <%= form.text_area :app_idea, :placeholder => "Vul hier je idee in", :style => "width: 100%; height: 50px;" %>
+    <%= submit_tag "Sla je idee op" %>
+  <% end %>
+
+  <h2>Maak een project aan op GitHub</h2>
+
+  <p><%= link_to "GitHub", "http://github.com" %> is de plek waar je de code van jouw web applicatie gaat bewaren. Maak op GitHub een repository aan voor jouw web app en vul deze hier in.</p>
+
+  <%= text_field_tag "repository_url", "", :placeholder => "Bijvoorbeeld: https://github.com/michiels/pencilbox.git", :style => "font-size: 13px; width: 100%; padding: 3px 1px;" %>
+  <%= submit_tag "Sla dit repository op" %>
 
   <div id="player_assignments" class="claim_scores" style="margin: 40px 0;">
 

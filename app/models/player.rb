@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
   devise :omniauthable, :registerable #,  :confirmable # :rememberable, :trackable,
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :app_idea, :git_repository_url
   # attr_accessible :title, :body
 
   validates :email, :presence => true, :uniqueness => true

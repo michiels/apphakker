@@ -1,4 +1,6 @@
 Apphakker::Application.routes.draw do
+  get "players/update"
+
   resources :assignment_sets, :path => "sets"
 
   get "dashboard" => "dashboard#index", :as => :dashboard
@@ -10,6 +12,8 @@ Apphakker::Application.routes.draw do
       post :claim
     end
   end
+
+  resource :player, defaults: {format: :js}
 
   devise_for :players, :controllers => { :omniauth_callbacks => "players/omniauth_callbacks"}
 

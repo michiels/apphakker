@@ -4,7 +4,7 @@ class AchievementsController < ApplicationController
   def claim
     @assignment = Assignment.find(params[:id])
 
-    if @assignment.unlocked?
+    if @assignment.unlocked?(current_player)
       current_player.assignments << @assignment
 
       if current_player.assignments.starter.count == Assignment.starter.count

@@ -1,6 +1,6 @@
 class GithubAccountCreated
 
-  def unlocked?
+  def unlocked?(player = nil)
     return true
   end
 
