@@ -10,3 +10,4 @@ michiel:
   name: Michiel Sikkes
   uid: 55555
   provider: github
+  git_repository_url: git@github.com:michiels/apphakker.git

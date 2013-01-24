@@ -34,6 +34,7 @@ group :assets do
 end
 
 gem 'strong_parameters'
+gem 'grit', require: false
 
 gem 'bourbon'
 gem 'jquery-rails'

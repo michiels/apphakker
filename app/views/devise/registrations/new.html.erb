@@ -18,10 +18,7 @@
 
   <%= form_for resource, :as => resource_name, :url => registration_path(resource) do |form| %>
     <p>
-      <%= session['devise.github_data'].extra.raw_info.login %>
-    </p>
-    <p>
-      <%= form.email_field :email %>
+      <%= form.email_field :email, :placeholder => "Vul hier je e-mailadres in." %>
     </p>
     <p class="actions">
       <%= form.submit "Verder", :class => "button" %>

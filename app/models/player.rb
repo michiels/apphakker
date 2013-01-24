@@ -17,7 +17,7 @@ class Player < ActiveRecord::Base
     super.tap do |player|
       player.provider = session['devise.github_data'].provider
       player.uid = session['devise.github_data'].uid
-      player.email = session['devise.github_data'].extra.raw_info.email
+      player.email ||= session['devise.github_data'].extra.raw_info.email
     end
   end
 end
